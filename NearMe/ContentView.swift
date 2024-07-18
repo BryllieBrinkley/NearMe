@@ -10,18 +10,19 @@ import MapKit
 
 struct ContentView: View {
     
-    @State private var query: String = ""
+    @State private var query: String = "Coffee"
     @State private var selectedDetent: PresentationDetent = .fraction(0.15)
     @State private var locationManager = LocationManager.shared
     @State private var position: MapCameraPosition = .userLocation(fallback: .automatic)
     @State private var isSearching: Bool = false
     @State private var mapItems: [MKMapItem] = []
+    @State private var visibleRegion: MKCoordinateRegion?
     
     
     private func search() async {
     
         do {
-           mapItems = try await performSearch(searchTerm: query, visibleRegion: locationManager.region)
+           mapItems = try await performSearch(searchTerm: query, visibleRegion: visibleRegion)
             print(mapItems)
             isSearching = false
         } catch {
@@ -34,6 +35,9 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             Map(position: $position) {
+                ForEach(mapItems, id: \.self) { mapItem in
+                    Marker(item: mapItem)
+                }
                 UserAnnotation()
             }
             
@@ -50,6 +54,12 @@ struct ContentView: View {
                             isSearching = true
                         }
                     
+                   
+                    List(mapItems, id: \.self) { mapItem in
+                        PlaceView(mapItem: mapItem)
+                            .font(.title3)
+                    }
+                    
                     Spacer()
                 }
                 .presentationDetents([.fraction(0.15), .medium, .large], selection: $selectedDetent)
@@ -57,6 +67,9 @@ struct ContentView: View {
                 .interactiveDismissDisabled()
                 .presentationBackgroundInteraction(.enabled(upThrough: .medium))
             })
+        }
+        .onMapCameraChange { context in
+            visibleRegion = context.region
         }
         .task(id: isSearching, {
             if isSearching {

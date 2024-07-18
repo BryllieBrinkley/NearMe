@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		57263B292C49549C00AB7FA4 /* PlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57263B282C49549B00AB7FA4 /* PlaceView.swift */; };
+		57263B2B2C495CF100AB7FA4 /* PreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57263B2A2C495CF100AB7FA4 /* PreviewData.swift */; };
 		57B0A3542C485A5300DD8A7F /* NearMeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B0A3532C485A5300DD8A7F /* NearMeApp.swift */; };
 		57B0A3562C485A5300DD8A7F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B0A3552C485A5300DD8A7F /* ContentView.swift */; };
 		57B0A3582C485A5500DD8A7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57B0A3572C485A5500DD8A7F /* Assets.xcassets */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		57263B282C49549B00AB7FA4 /* PlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceView.swift; sourceTree = "<group>"; };
+		57263B2A2C495CF100AB7FA4 /* PreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewData.swift; sourceTree = "<group>"; };
 		57B0A3502C485A5300DD8A7F /* NearMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NearMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57B0A3532C485A5300DD8A7F /* NearMeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearMeApp.swift; sourceTree = "<group>"; };
 		57B0A3552C485A5300DD8A7F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -39,6 +43,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		57263B272C49548000AB7FA4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				57263B282C49549B00AB7FA4 /* PlaceView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		57B0A3472C485A5300DD8A7F = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +70,7 @@
 		57B0A3522C485A5300DD8A7F /* NearMe */ = {
 			isa = PBXGroup;
 			children = (
+				57263B272C49548000AB7FA4 /* Views */,
 				57B0A3692C48D2B100DD8A7F /* Utilities */,
 				57B0A3662C48CBCC00DD8A7F /* Extensions */,
 				57B0A3632C48700D00DD8A7F /* Managers */,
@@ -74,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				57B0A35B2C485A5500DD8A7F /* Preview Assets.xcassets */,
+				57263B2A2C495CF100AB7FA4 /* PreviewData.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -172,9 +186,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57263B292C49549C00AB7FA4 /* PlaceView.swift in Sources */,
 				57B0A3562C485A5300DD8A7F /* ContentView.swift in Sources */,
 				57B0A3682C48CBE900DD8A7F /* MKCoordinateRegion+Extensions.swift in Sources */,
 				57B0A3542C485A5300DD8A7F /* NearMeApp.swift in Sources */,
+				57263B2B2C495CF100AB7FA4 /* PreviewData.swift in Sources */,
 				57B0A36B2C48D2EC00DD8A7F /* MapUtilities.swift in Sources */,
 				57B0A3652C48705700DD8A7F /* LocationManager.swift in Sources */,
 			);
