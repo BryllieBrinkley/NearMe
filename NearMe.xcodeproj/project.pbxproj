@@ -12,6 +12,7 @@
 		57263B2D2C49662C00AB7FA4 /* SearchOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57263B2C2C49662C00AB7FA4 /* SearchOptionsView.swift */; };
 		57263B2F2C4977E300AB7FA4 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57263B2E2C4977E300AB7FA4 /* SearchBarView.swift */; };
 		57263B312C4986BE00AB7FA4 /* PlaceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57263B302C4986BE00AB7FA4 /* PlaceListView.swift */; };
+		57263B332C499ACF00AB7FA4 /* MeasurementFormatter+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57263B322C499ACF00AB7FA4 /* MeasurementFormatter+Extensions.swift */; };
 		57B0A3542C485A5300DD8A7F /* NearMeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B0A3532C485A5300DD8A7F /* NearMeApp.swift */; };
 		57B0A3562C485A5300DD8A7F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B0A3552C485A5300DD8A7F /* ContentView.swift */; };
 		57B0A3582C485A5500DD8A7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57B0A3572C485A5500DD8A7F /* Assets.xcassets */; };
@@ -27,6 +28,7 @@
 		57263B2C2C49662C00AB7FA4 /* SearchOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchOptionsView.swift; sourceTree = "<group>"; };
 		57263B2E2C4977E300AB7FA4 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		57263B302C4986BE00AB7FA4 /* PlaceListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceListView.swift; sourceTree = "<group>"; };
+		57263B322C499ACF00AB7FA4 /* MeasurementFormatter+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MeasurementFormatter+Extensions.swift"; sourceTree = "<group>"; };
 		57B0A3502C485A5300DD8A7F /* NearMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NearMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57B0A3532C485A5300DD8A7F /* NearMeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearMeApp.swift; sourceTree = "<group>"; };
 		57B0A3552C485A5300DD8A7F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				57B0A3672C48CBE900DD8A7F /* MKCoordinateRegion+Extensions.swift */,
+				57263B322C499ACF00AB7FA4 /* MeasurementFormatter+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 				57B0A36B2C48D2EC00DD8A7F /* MapUtilities.swift in Sources */,
 				57B0A3652C48705700DD8A7F /* LocationManager.swift in Sources */,
 				57263B2D2C49662C00AB7FA4 /* SearchOptionsView.swift in Sources */,
+				57263B332C499ACF00AB7FA4 /* MeasurementFormatter+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

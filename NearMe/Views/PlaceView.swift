@@ -19,12 +19,27 @@ struct PlaceView: View {
         
     }
     
+    private var distance: Measurement<UnitLength>? {
+        
+        guard let userLocation = LocationManager.shared.manager.location,
+              let destinationLocation = mapItem.placemark.location
+        else {
+            return nil
+        }
+        return calculateDistance(to: userLocation, from: destinationLocation)
+    }
+    
     var body: some View {
         VStack(alignment: .leading)  {
             Text(mapItem.name ?? "")
                 .font(.title3)
             Text(address)
                 .frame(maxWidth: .infinity, alignment: .leading)
+            
+            if let distance {
+                Text(distance, formatter: MeasurementFormatter.distance)
+            }
+            
         }
     }
 }

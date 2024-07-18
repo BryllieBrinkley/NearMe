@@ -42,7 +42,7 @@ struct ContentView: View {
             }
             
             .onChange(of: locationManager.region,  {
-                position = .region(locationManager.region)
+                 position = .region(locationManager.region)
             })
             .sheet(isPresented: .constant(true), content: {
                 VStack {
