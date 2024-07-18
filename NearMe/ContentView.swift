@@ -53,6 +53,10 @@ struct ContentView: View {
                             // code fired when you click return in Text Field
                             isSearching = true
                         }
+                    SearchOptionsView { searchTerm in
+                        query = searchTerm
+                        isSearching = true
+                    }
                     
                    
                     List(mapItems, id: \.self) { mapItem in
