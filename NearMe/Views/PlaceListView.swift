@@ -31,7 +31,6 @@ struct PlaceListView: View {
             return lhsDistance < rhsDistance
             
         }
-        return []
     }
     
     var body: some View {
