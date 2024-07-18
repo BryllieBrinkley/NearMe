@@ -13,6 +13,7 @@
 		57B0A35C2C485A5500DD8A7F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57B0A35B2C485A5500DD8A7F /* Preview Assets.xcassets */; };
 		57B0A3652C48705700DD8A7F /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B0A3642C48705700DD8A7F /* LocationManager.swift */; };
 		57B0A3682C48CBE900DD8A7F /* MKCoordinateRegion+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B0A3672C48CBE900DD8A7F /* MKCoordinateRegion+Extensions.swift */; };
+		57B0A36B2C48D2EC00DD8A7F /* MapUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B0A36A2C48D2EC00DD8A7F /* MapUtilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		57B0A35B2C485A5500DD8A7F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		57B0A3642C48705700DD8A7F /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		57B0A3672C48CBE900DD8A7F /* MKCoordinateRegion+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKCoordinateRegion+Extensions.swift"; sourceTree = "<group>"; };
+		57B0A36A2C48D2EC00DD8A7F /* MapUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapUtilities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		57B0A3522C485A5300DD8A7F /* NearMe */ = {
 			isa = PBXGroup;
 			children = (
+				57B0A3692C48D2B100DD8A7F /* Utilities */,
 				57B0A3662C48CBCC00DD8A7F /* Extensions */,
 				57B0A3632C48700D00DD8A7F /* Managers */,
 				57B0A3532C485A5300DD8A7F /* NearMeApp.swift */,
@@ -89,6 +92,14 @@
 				57B0A3672C48CBE900DD8A7F /* MKCoordinateRegion+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		57B0A3692C48D2B100DD8A7F /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				57B0A36A2C48D2EC00DD8A7F /* MapUtilities.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,6 +175,7 @@
 				57B0A3562C485A5300DD8A7F /* ContentView.swift in Sources */,
 				57B0A3682C48CBE900DD8A7F /* MKCoordinateRegion+Extensions.swift in Sources */,
 				57B0A3542C485A5300DD8A7F /* NearMeApp.swift in Sources */,
+				57B0A36B2C48D2EC00DD8A7F /* MapUtilities.swift in Sources */,
 				57B0A3652C48705700DD8A7F /* LocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
