@@ -46,27 +46,13 @@ struct ContentView: View {
             })
             .sheet(isPresented: .constant(true), content: {
                 VStack {
-                    TextField("Search", text: $query)
-                        .textFieldStyle(.roundedBorder)
-                        .padding()
-                        .onSubmit {
-                            // code fired when you click return in Text Field
-                            isSearching = true
-                        }
-                    SearchOptionsView { searchTerm in
-                        query = searchTerm
-                        isSearching = true
-                    }
                     
-                   
-                    List(mapItems, id: \.self) { mapItem in
-                        PlaceView(mapItem: mapItem)
-                            .font(.title3)
-                    }
+                    SearchBarView(search: $query, isSearching: $isSearching)
+                    PlaceListView(mapItems: mapItems)
                     
                     Spacer()
                 }
-                .presentationDetents([.fraction(0.15), .medium, .large], selection: $selectedDetent)
+                .presentationDetents([.fraction(0.15), .medium, .large])
                 .presentationDragIndicator(.visible)
                 .interactiveDismissDisabled()
                 .presentationBackgroundInteraction(.enabled(upThrough: .medium))
