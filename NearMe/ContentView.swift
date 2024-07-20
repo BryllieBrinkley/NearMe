@@ -16,7 +16,7 @@ enum DisplayMode {
 
 struct ContentView: View {
     
-    @State private var query: String = "Coffee"
+    @State private var query: String = ""
     @State private var selectedDetent: PresentationDetent = .fraction(0.15)
     @State private var locationManager = LocationManager.shared
     @State private var position: MapCameraPosition = .userLocation(fallback: .automatic)
@@ -92,15 +92,17 @@ struct ContentView: View {
                     case .detail:
                         SelectedPlaceDetailView(mapItem: $selectedMapItem)
                             .padding()
-                        
+
                         if selectedDetent == .medium || selectedDetent == .large {
+                            if let selectedMapItem {
+                                ActionButtons(mapItem: selectedMapItem)
+                                    .padding()
+                            }
                             LookAroundPreview(initialScene: lookAroundScene)
                         }
 
                     }
-                    
-                    
-                    
+
                     Spacer()
                 }
                 .presentationDetents([.fraction(0.15), .medium, .large], selection: $selectedDetent)
