@@ -25,7 +25,8 @@ struct ContentView: View {
     @State private var visibleRegion: MKCoordinateRegion?
     @State private var selectedMapItem: MKMapItem?
     @State private var displayMode: DisplayMode = .search
-    
+    @State private var lookAroundScene: MKLookAroundScene?
+    @State private var route: MKRoute?
     
     private func search() async {
     
@@ -40,13 +41,42 @@ struct ContentView: View {
         }
     }
     
+    private func requestCalculateDirections() async {
+        
+        route = nil
+        
+        if let selectedMapItem {
+            guard let currentUserLocation = locationManager.manager.location else {
+                return
+            }
+            let startingMapItem = MKMapItem(placemark: MKPlacemark(coordinate: currentUserLocation.coordinate))
+            
+            
+            Task {
+                self.route = await calculateDirections(to: selectedMapItem, from: startingMapItem)
+                
+            }
+        }
+        
+    }
+    
     var body: some View {
         ZStack {
             Map(position: $position, selection: $selectedMapItem) {
                 ForEach(mapItems, id: \.self) { mapItem in
                     Marker(item: mapItem)
                 }
+                
+                if let route {
+                    MapPolyline(route)
+                        .stroke(.blue, lineWidth: 12)
+                    
+                }
+                
                 UserAnnotation()
+                
+                
+                
             }
             
             .onChange(of: locationManager.region,  {
@@ -58,17 +88,22 @@ struct ContentView: View {
                     switch displayMode {
                     case .search:
                         SearchBarView(search: $query, isSearching: $isSearching)
-                        PlaceListView(mapItems: mapItems)
+                        PlaceListView(mapItems: mapItems, selectedMapItem: $selectedMapItem)
                     case .detail:
                         SelectedPlaceDetailView(mapItem: $selectedMapItem)
                             .padding()
+                        
+                        if selectedDetent == .medium || selectedDetent == .large {
+                            LookAroundPreview(initialScene: lookAroundScene)
+                        }
+
                     }
                     
                     
                     
                     Spacer()
                 }
-                .presentationDetents([.fraction(0.15), .medium, .large])
+                .presentationDetents([.fraction(0.15), .medium, .large], selection: $selectedDetent)
                 .presentationDragIndicator(.visible)
                 .interactiveDismissDisabled()
                 .presentationBackgroundInteraction(.enabled(upThrough: .medium))
@@ -78,6 +113,7 @@ struct ContentView: View {
         .onChange(of: selectedMapItem, {
             if selectedMapItem != nil {
                 displayMode = .detail
+//                requestCalculateDirections()
             } else {
                 displayMode = .search
             }
@@ -86,6 +122,14 @@ struct ContentView: View {
         
         .onMapCameraChange { context in
             visibleRegion = context.region
+        }
+        .task(id: selectedMapItem) {
+            lookAroundScene = nil
+            if let selectedMapItem {
+                let request = MKLookAroundSceneRequest(mapItem: selectedMapItem)
+                lookAroundScene = try? await request.scene
+                await requestCalculateDirections()
+            }
         }
         .task(id: isSearching, {
             if isSearching {
